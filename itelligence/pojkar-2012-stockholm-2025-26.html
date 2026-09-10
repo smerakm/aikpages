@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pojkar 2012 Stockholm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #F4F7F3;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0E9;
+    --line: #DAE3D8;
+    --line-strong: #BCCBBA;
+    --ink: #131C16;
+    --ink-2: #4B5B50;
+    --ink-3: #78887D;
+    --accent: #12734A;
+    --accent-soft: #DDEFE3;
+    --pos: #12734A;
+    --neg: #A9432E;
+    --shadow: 0 1px 2px rgba(19, 28, 22, .05), 0 8px 24px -16px rgba(19, 28, 22, .35);
+    --radius: 10px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0D1310;
+      --surface: #151D18;
+      --surface-2: #1C251F;
+      --line: #27332B;
+      --line-strong: #3A4A3E;
+      --ink: #E7EEE8;
+      --ink-2: #AABAAF;
+      --ink-3: #7F9085;
+      --accent: #4ECB8A;
+      --accent-soft: #16301F;
+      --pos: #4ECB8A;
+      --neg: #E58C73;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0D1310;
+    --surface: #151D18;
+    --surface-2: #1C251F;
+    --line: #27332B;
+    --line-strong: #3A4A3E;
+    --ink: #E7EEE8;
+    --ink-2: #AABAAF;
+    --ink-3: #7F9085;
+    --accent: #4ECB8A;
+    --accent-soft: #16301F;
+    --pos: #4ECB8A;
+    --neg: #E58C73;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 40px 24px 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* ---------- header ---------- */
+  .eyebrow {
+    font-family: "Barlow Condensed", "Public Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-family: "Barlow Condensed", "Public Sans", sans-serif;
+    font-size: clamp(38px, 7vw, 58px);
+    font-weight: 700;
+    letter-spacing: -.01em;
+    line-height: .98;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .lede {
+    margin: 12px 0 0;
+    max-width: 62ch;
+    color: var(--ink-2);
+  }
+  .lede a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .fact {
+    padding: 12px 26px 12px 0;
+    margin-right: 26px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .fact:last-child { border-right: 0; margin-right: 0; }
+  .fact b {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .fact span {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  /* ---------- controls ---------- */
+  .controls { display: flex; flex-direction: column; gap: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font: inherit;
+    font-weight: 500;
+    background: var(--surface);
+    color: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    transition: border-color .12s, color .12s, background .12s;
+  }
+  .chip .n {
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+  }
+  .chip:hover { border-color: var(--line-strong); color: var(--ink); }
+  .chip[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .chip[aria-pressed="true"] .n { color: var(--accent); }
+  .chip:focus-visible, .search input:focus-visible, th button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search { position: relative; flex: 1 1 260px; max-width: 340px; }
+  .search input {
+    font: inherit;
+    width: 100%;
+    padding: 9px 12px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  .search input::placeholder { color: var(--ink-3); }
+  .status {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .reset {
+    font: inherit;
+    font-size: 13px;
+    background: none;
+    border: 0;
+    color: var(--accent);
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .reset[hidden] { display: none !important; }
+
+  /* ---------- table ---------- */
+  .tablewrap {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 860px; }
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line-strong);
+    padding: 0;
+    text-align: right;
+    white-space: nowrap;
+  }
+  thead th:nth-child(-n+3) { text-align: left; }
+  th button {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    width: 100%;
+    padding: 11px 10px;
+    text-align: inherit;
+    white-space: nowrap;
+  }
+  th button:hover { color: var(--ink); }
+  th[aria-sort] button { color: var(--accent); }
+  th button .arw { font-size: 10px; opacity: .9; }
+
+  tbody td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--line);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: var(--surface-2); }
+  tbody tr.newgroup td { border-top: 1px solid var(--line-strong); }
+
+  td.serie { text-align: left; }
+  td.rank { text-align: left; width: 46px; color: var(--ink-3); font-weight: 600; }
+  td.team { text-align: left; color: var(--ink); font-weight: 500; white-space: normal; min-width: 210px; }
+  tr.lead td.team { font-weight: 700; }
+  .teamlink {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+  }
+  .teamlink:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .teamlink:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  tr.lead td.rank { color: var(--accent); }
+  td.p { color: var(--ink); font-weight: 700; }
+  td.goals { color: var(--ink-2); }
+  .diff.pos { color: var(--pos); }
+  .diff.neg { color: var(--neg); }
+  .diff.zero { color: var(--ink-3); }
+
+  .badge {
+    display: inline-block;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-2);
+    background: var(--bg);
+  }
+  .badge.lvA { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+  .empty { padding: 40px 16px; text-align: center; color: var(--ink-3); }
+  .empty[hidden] { display: none !important; }
+
+  footer {
+    color: var(--ink-3);
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  footer a { color: var(--accent); }
+
+  .back {
+    display: inline-block;
+    margin: 0 0 14px;
+    font-family: "Barlow Condensed", "Public Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .back:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .key { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 28px 16px 56px; }
+    .fact { padding-right: 18px; margin-right: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="back" href="index.html">&larr; Itelligence</a>
+    <p class="eyebrow">Stockholms IBF &middot; Säsongen 2025/26</p>
+    <h1>Pojkar 2012</h1>
+    <p class="lede">Alla åtta Pantamera-serier för Pojkar 2012 i en och samma tabell. Varje lag står kvar i sin egen serie — A-serien spelades på hösten och delades i A1, A2 och A3 på våren. Siffrorna är hämtade från <a href="https://stats.innebandy.se/sasong/43/serie/40838/serietabell" target="_blank" rel="noopener">stats.innebandy.se</a>.</p>
+    <div class="facts">
+      <div class="fact"><b>8</b><span>Serier</span></div>
+      <div class="fact"><b id="f-rows">0</b><span>Lagplatser</span></div>
+      <div class="fact"><b id="f-clubs">0</b><span>Föreningar</span></div>
+      <div class="fact"><b id="f-matches">0</b><span>Matcher</span></div>
+      <div class="fact"><b id="f-goals">0</b><span>Mål</span></div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="chips" id="chips"></div>
+    <div class="toolbar">
+      <label class="search">
+        <input id="q" type="search" placeholder="Sök lag eller förening…" aria-label="Sök lag eller förening">
+      </label>
+      <div style="display:flex;align-items:center;gap:16px">
+        <button class="reset" id="reset" hidden>Återställ</button>
+        <span class="status" id="status"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr id="head"></tr>
+      </thead>
+      <tbody id="body"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>Inga lag matchar sökningen.</p>
+  </div>
+
+  <footer>
+    <div class="key">
+      <span><b>S</b> spelade</span><span><b>V</b> vinster</span><span><b>O</b> oavgjorda</span><span><b>F</b> förluster</span><span><b>GM–IM</b> gjorda–insläppta mål</span><span><b>+/−</b> målskillnad</span><span><b>P</b> poäng</span><span><b>P/M</b> poäng per spelad match</span>
+    </div>
+    <div>Klicka på ett lagnamn för att söka fram alla lag från samma förening, i alla serier.</div>
+    <div>Klicka på en kolumnrubrik för att sortera hela tabellen — P/M gör det möjligt att jämföra lag mellan serier med olika många omgångar. Klicka på <b>Serie</b> för att gå tillbaka till serieordningen.</div>
+    <div>Källa: Svensk Innebandy, stats.innebandy.se. Slutställningar för säsongen 2025/26, hämtade 4 september 2026.</div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var S = [
+    { key: "A",  name: "Pantamera Pojkar 2012 A",           short: "A",   lv: "A", url: "https://stats.innebandy.se/sasong/43/serie/40838/serietabell" },
+    { key: "A1", name: "Pantamera Pojkar 2012 A1",          short: "A1",  lv: "A", url: "https://stats.innebandy.se/sasong/43/serie/43523/serietabell" },
+    { key: "A2", name: "Pantamera Pojkar 2012 A2",          short: "A2",  lv: "A", url: "https://stats.innebandy.se/sasong/43/serie/43524/serietabell" },
+    { key: "A3", name: "Pantamera Pojkar 2012 A3",          short: "A3",  lv: "A", url: "https://stats.innebandy.se/sasong/43/serie/43525/serietabell" },
+    { key: "BM", name: "Pantamera Pojkar 2012 B Mellersta", short: "B Mellersta", lv: "B", url: "https://stats.innebandy.se/sasong/43/serie/41368/serietabell" },
+    { key: "BN", name: "Pantamera Pojkar 2012 B Norra",     short: "B Norra",     lv: "B", url: "https://stats.innebandy.se/sasong/43/serie/41367/serietabell" },
+    { key: "BS", name: "Pantamera Pojkar 2012 B Södra",     short: "B Södra",     lv: "B", url: "https://stats.innebandy.se/sasong/43/serie/41369/serietabell" },
+    { key: "C",  name: "Pantamera Pojkar 2012 C",           short: "C",   lv: "C", url: "https://stats.innebandy.se/sasong/43/serie/41371/serietabell" }
+  ];
+
+  // serie, placering, lag, S, V, O, F, GM, IM, P
+  var RAW = [
+    ["A",1,"Vallentuna IBK (B)",11,10,1,0,82,28,31],
+    ["A",2,"Vallentuna IBK (A)",11,7,3,1,65,41,24],
+    ["A",3,"Värmdö IF",11,7,1,3,60,46,22],
+    ["A",4,"Huddinge IBS",11,7,0,4,42,37,21],
+    ["A",5,"Ekerö IK",11,6,2,3,53,32,20],
+    ["A",6,"Tyresö Trollbäcken IBK",11,5,1,5,41,47,16],
+    ["A",7,"Täby FC (A)",11,4,2,5,53,53,14],
+    ["A",8,"Älvsjö AIK IBF",11,4,1,6,33,48,13],
+    ["A",9,"Segeltorps IF IBF",11,4,0,7,35,61,12],
+    ["A",10,"Hästhagen IF",11,3,0,8,44,60,9],
+    ["A",11,"Järfälla Bele IBK",11,2,1,8,39,59,7],
+    ["A",12,"IK Frej Täby IBK",11,1,0,10,31,66,3],
+
+    ["A1",1,"Vallentuna IBK (B)",3,3,0,0,20,13,9],
+    ["A1",2,"Värmdö IF",3,1,1,1,11,12,4],
+    ["A1",3,"Täby FC (A)",3,0,2,1,13,14,2],
+    ["A1",4,"Ekerö IK",3,0,1,2,10,15,1],
+
+    ["A2",1,"Vallentuna IBK (A)",3,3,0,0,16,9,9],
+    ["A2",2,"Älvsjö AIK IBF",3,2,0,1,12,6,6],
+    ["A2",3,"Tyresö Trollbäcken IBK",3,1,0,2,9,15,3],
+    ["A2",4,"Huddinge IBS",3,0,0,3,5,12,0],
+
+    ["A3",1,"Järfälla Bele IBK",3,2,0,1,16,7,6],
+    ["A3",2,"Hästhagen IF",3,2,0,1,15,12,6],
+    ["A3",3,"Segeltorps IF IBF",3,2,0,1,13,13,6],
+    ["A3",4,"IK Frej Täby IBK",3,0,0,3,5,17,0],
+
+    ["BM",1,"Väsby AIK (B)",19,18,1,0,149,38,55],
+    ["BM",2,"Ekerö IK",19,13,2,4,100,59,41],
+    ["BM",3,"Täby FC (B)",19,11,1,7,118,75,34],
+    ["BM",4,"Duvbo IK",19,10,1,8,78,78,31],
+    ["BM",5,"Sundbybergs IK (B)",19,9,2,8,87,85,29],
+    ["BM",6,"Nacka IBK (A)",19,8,0,11,58,77,24],
+    ["BM",7,"FBC Sollentuna",19,6,4,9,57,73,22],
+    ["BM",8,"Älvsjö AIK IBF (A)",19,6,3,10,71,89,21],
+    ["BM",9,"Ängby IF/Mariebergs SK (A)",19,4,2,13,64,127,14],
+    ["BM",10,"Kungsängens IF",10,4,0,6,31,39,12],
+    ["BM",11,"Hässelby SK IBK (B)",19,3,0,16,49,122,9],
+
+    ["BN",1,"Vallentuna IBK",22,16,1,5,125,65,49],
+    ["BN",2,"Åkersberga IBF",22,14,3,5,105,72,45],
+    ["BN",3,"Täby FC (E)",22,13,4,5,118,74,43],
+    ["BN",4,"IK Frej Täby IBK",22,14,1,7,111,84,43],
+    ["BN",5,"Sundbybergs IK (A)",22,11,1,10,119,89,34],
+    ["BN",6,"Väsby AIK (A)",22,9,2,11,78,82,29],
+    ["BN",7,"Hässelby SK IBK (A)",22,9,0,13,73,113,27],
+    ["BN",8,"Jakobsbergs IBF",22,8,1,13,81,103,25],
+    ["BN",9,"Täby FC (D)",22,7,2,13,74,96,23],
+    ["BN",10,"Täby FC (A)",22,7,2,13,77,105,23],
+    ["BN",11,"Danderyd FC",22,6,4,12,83,95,22],
+    ["BN",12,"Ängby IF/Mariebergs SK (B)",22,6,3,13,84,150,21],
+
+    ["BS",1,"Tyresö Trollbäcken IBK",14,10,3,1,63,41,33],
+    ["BS",2,"Älta IF",14,9,2,3,65,35,29],
+    ["BS",3,"Högalids IF",14,7,3,4,68,47,24],
+    ["BS",4,"Salems IF",14,7,2,5,74,49,23],
+    ["BS",5,"Nacka IBK (B)",14,5,2,7,31,45,17],
+    ["BS",6,"IFK Haninge",14,5,1,8,46,61,16],
+    ["BS",7,"Nynäshamns IBK",14,5,1,8,44,62,16],
+    ["BS",8,"Älvsjö AIK IBF (B)",14,1,0,13,37,88,3],
+
+    ["C",1,"AIK IBF",13,9,2,2,112,51,29],
+    ["C",2,"Sigtuna IF IBK",13,9,1,3,132,50,28],
+    ["C",3,"Duvbo IK",13,9,1,3,108,46,28],
+    ["C",4,"FBC Sollentuna",13,7,1,5,62,78,22],
+    ["C",5,"Kungsängens IF",13,6,2,5,63,51,20],
+    ["C",6,"Vaxholms IBF",13,4,1,8,74,71,13],
+    ["C",7,"Älvsjö AIK IBF",7,1,0,6,20,55,3],
+    ["C",8,"Hammarby IF IBF",13,0,0,13,25,194,0]
+  ];
+
+  var byKey = {};
+  S.forEach(function (s, i) { s.order = i; byKey[s.key] = s; });
+
+  var rows = RAW.map(function (r, i) {
+    return {
+      i: i,
+      s: byKey[r[0]],
+      pos: r[1],
+      team: r[2],
+      club: r[2].replace(/\s*\([A-Z]\)\s*$/, ""),
+      m: r[3], w: r[4], d: r[5], l: r[6],
+      gf: r[7], ga: r[8], p: r[9],
+      dif: r[7] - r[8],
+      ppm: r[3] ? r[9] / r[3] : 0
+    };
+  });
+
+  // ---- header facts ----
+  var totalMatches = Math.round(rows.reduce(function (a, r) { return a + r.m; }, 0) / 2);
+  var totalGoals = rows.reduce(function (a, r) { return a + r.gf; }, 0);
+  var clubs = {};
+  rows.forEach(function (r) { clubs[r.club] = 1; });
+  document.getElementById("f-rows").textContent = rows.length;
+  document.getElementById("f-clubs").textContent = Object.keys(clubs).length;
+  document.getElementById("f-matches").textContent = totalMatches;
+  document.getElementById("f-goals").textContent = totalGoals;
+
+  // ---- state ----
+  var state = { serie: "ALL", q: "", sort: null, dir: -1 };
+
+  // ---- chips ----
+  var chips = document.getElementById("chips");
+  function chip(key, label, count) {
+    var b = document.createElement("button");
+    b.className = "chip";
+    b.type = "button";
+    b.setAttribute("aria-pressed", state.serie === key ? "true" : "false");
+    b.dataset.key = key;
+    b.innerHTML = '<span>' + label + '</span><span class="n">' + count + '</span>';
+    b.addEventListener("click", function () {
+      state.serie = key;
+      [].forEach.call(chips.children, function (c) {
+        c.setAttribute("aria-pressed", c.dataset.key === key ? "true" : "false");
+      });
+      render();
+    });
+    chips.appendChild(b);
+  }
+  chip("ALL", "Alla serier", rows.length);
+  S.forEach(function (s) {
+    chip(s.key, s.short, rows.filter(function (r) { return r.s === s; }).length);
+  });
+
+  // ---- columns ----
+  var COLS = [
+    { k: "serie", t: "Serie", num: false },
+    { k: "pos",   t: "#",     num: true, asc: true },
+    { k: "team",  t: "Lag",   num: false },
+    { k: "m",  t: "S", num: true },
+    { k: "w",  t: "V", num: true },
+    { k: "d",  t: "O", num: true },
+    { k: "l",  t: "F", num: true },
+    { k: "gf", t: "GM", num: true },
+    { k: "ga", t: "IM", num: true },
+    { k: "dif", t: "+/−", num: true },
+    { k: "p",   t: "P",  num: true },
+    { k: "ppm", t: "P/M", num: true }
+  ];
+
+  var head = document.getElementById("head");
+  COLS.forEach(function (c) {
+    var th = document.createElement("th");
+    var b = document.createElement("button");
+    b.type = "button";
+    b.dataset.k = c.k;
+    b.innerHTML = c.t + ' <span class="arw"></span>';
+    b.addEventListener("click", function () { sortBy(c); });
+    th.appendChild(b);
+    head.appendChild(th);
+  });
+
+  function sortBy(c) {
+    if (c.k === "serie") { state.sort = null; state.dir = -1; render(); return; }
+    if (state.sort === c.k) { state.dir = -state.dir; }
+    else { state.sort = c.k; state.dir = (c.num && !c.asc) ? -1 : 1; }
+    render();
+  }
+
+  // ---- render ----
+  var body = document.getElementById("body");
+  var statusEl = document.getElementById("status");
+  var emptyEl = document.getElementById("empty");
+  var resetEl = document.getElementById("reset");
+
+  function fmtDiff(n) {
+    var cls = n > 0 ? "pos" : (n < 0 ? "neg" : "zero");
+    var txt = n > 0 ? "+" + n : (n < 0 ? "−" + Math.abs(n) : "0");
+    return '<span class="diff ' + cls + '">' + txt + "</span>";
+  }
+
+  function render() {
+    var q = state.q.trim().toLowerCase();
+    var list = rows.filter(function (r) {
+      if (state.serie !== "ALL" && r.s.key !== state.serie) return false;
+      if (q && r.team.toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+
+    if (state.sort) {
+      var k = state.sort, d = state.dir;
+      list = list.slice().sort(function (a, b) {
+        var x = a[k], y = b[k], c;
+        if (typeof x === "string") c = x.localeCompare(y, "sv");
+        else c = x - y;
+        if (c === 0) { c = a.s.order - b.s.order || a.pos - b.pos; return c; }
+        return c * d;
+      });
+    } else {
+      list = list.slice().sort(function (a, b) {
+        return a.s.order - b.s.order || a.pos - b.pos;
+      });
+    }
+
+    [].forEach.call(head.children, function (th) {
+      var k = th.firstChild.dataset.k;
+      var arw = th.querySelector(".arw");
+      if (state.sort === k) {
+        th.setAttribute("aria-sort", state.dir === 1 ? "ascending" : "descending");
+        arw.textContent = state.dir === 1 ? "▲" : "▼";
+      } else {
+        th.removeAttribute("aria-sort");
+        arw.textContent = "";
+      }
+    });
+
+    var html = "";
+    var prev = null;
+    list.forEach(function (r) {
+      var cls = [];
+      if (!state.sort && prev && prev !== r.s.key) cls.push("newgroup");
+      if (r.pos === 1) cls.push("lead");
+      prev = r.s.key;
+      html += '<tr class="' + cls.join(" ") + '">' +
+        '<td class="serie"><span class="badge lv' + r.s.lv + '">' + r.s.short + "</span></td>" +
+        '<td class="rank">' + r.pos + "</td>" +
+        '<td class="team"><button type="button" class="teamlink" data-club="' + r.club + '" title="Visa alla lag från ' + r.club + '">' + r.team + "</button></td>" +
+        "<td>" + r.m + "</td><td>" + r.w + "</td><td>" + r.d + "</td><td>" + r.l + "</td>" +
+        '<td class="goals">' + r.gf + '</td><td class="goals">' + r.ga + "</td>" +
+        "<td>" + fmtDiff(r.dif) + "</td>" +
+        '<td class="p">' + r.p + "</td>" +
+        "<td>" + r.ppm.toFixed(2).replace(".", ",") + "</td>" +
+        "</tr>";
+    });
+    body.innerHTML = html;
+    emptyEl.hidden = list.length > 0;
+
+    var active = state.serie !== "ALL" || q !== "" || state.sort !== null;
+    resetEl.hidden = !active;
+    statusEl.textContent = list.length === rows.length
+      ? rows.length + " lagplatser"
+      : list.length + " av " + rows.length + " lagplatser";
+  }
+
+  body.addEventListener("click", function (e) {
+    var btn = e.target.closest(".teamlink");
+    if (!btn) return;
+    var club = btn.dataset.club;
+    state.q = club;
+    state.serie = "ALL";
+    document.getElementById("q").value = club;
+    [].forEach.call(chips.children, function (c) {
+      c.setAttribute("aria-pressed", c.dataset.key === "ALL" ? "true" : "false");
+    });
+    render();
+  });
+
+  document.getElementById("q").addEventListener("input", function (e) {
+    state.q = e.target.value;
+    render();
+  });
+  resetEl.addEventListener("click", function () {
+    state.serie = "ALL"; state.q = ""; state.sort = null; state.dir = -1;
+    document.getElementById("q").value = "";
+    [].forEach.call(chips.children, function (c) {
+      c.setAttribute("aria-pressed", c.dataset.key === "ALL" ? "true" : "false");
+    });
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

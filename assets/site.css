@@ -1,0 +1,165 @@
+/* AIKPages — shared shell for the navigation pages.
+   Palette from aikinnebandy.se: gold #af9664 over near-black navy #031321. */
+
+:root {
+  --gold:      #af9664;
+  --gold-deep: #a29061;
+  --gold-lite: #b0a179;
+  --ink:       #000000;
+  --navy:      #031321;
+  --navy-2:    #020f1a;
+  --muted:     rgba(3, 19, 33, .74);
+  --card:      rgba(255, 255, 255, .14);
+  --card-hi:   rgba(255, 255, 255, .26);
+  --line:      rgba(3, 19, 33, .28);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--gold);
+  color: var(--ink);
+  font: 16px/1.6 "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main { width: 100%; max-width: 640px; }
+
+/* ---------- header ---------- */
+
+.mark {
+  display: block;
+  width: auto;
+  height: 62px;
+  margin: 0 0 1.1rem;
+}
+
+.back {
+  display: inline-block;
+  margin: 0 0 .9rem;
+  font-family: "Barlow Condensed", "Public Sans", sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+h1 {
+  margin: 0 0 .3rem;
+  font-family: "Barlow Condensed", "Public Sans", sans-serif;
+  font-size: clamp(38px, 7vw, 54px);
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+
+p.lead {
+  margin: 0 0 2.5rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ---------- cards ---------- */
+
+.card {
+  display: block;
+  padding: 1.4rem 1.7rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .15s ease, background-color .15s ease, transform .15s ease;
+}
+.card:hover {
+  border-color: var(--navy);
+  background: var(--card-hi);
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  margin: 0 0 .35rem;
+  font-family: "Barlow Condensed", "Public Sans", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.card h2 .arrow,
+.card h2 .lock {
+  flex: none;
+  margin-left: auto;
+  align-self: center;
+  color: var(--navy);
+}
+.card h2 .arrow { transition: transform .15s ease; }
+.card:hover h2 .arrow { transform: translateX(4px); }
+
+/* The lock marks a destination we cannot open for you, so it stays put
+   on hover — nothing here promises forward motion. */
+.card h2 .lock { width: 17px; height: 17px; }
+
+.card p {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.badge {
+  flex: none;
+  padding: .22em .6em .28em;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--gold);
+  font-family: "Public Sans", sans-serif;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Empty state — a card that is not a link. */
+.empty {
+  padding: 1.4rem 1.7rem;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  margin-top: 3rem;
+  color: var(--muted);
+  font-size: .85rem;
+}
+footer a { color: var(--navy); }
+
+/* ---------- focus ---------- */
+
+.card:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  body { padding: 1.25rem; }
+  .card { padding: 1.2rem 1.25rem; }
+}
