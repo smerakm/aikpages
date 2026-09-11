@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&Ouml;vningar &middot; AIK P2012 / P2013</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  /* Denna sida visar &ouml;vningsbilder &mdash; den beh&ouml;ver mer bredd &auml;n navsidorna. */
+  body { align-items: flex-start; }
+  main { max-width: 820px; }
+
+  /* ---------- inneh&aring;llsf&ouml;rteckning ---------- */
+
+  .toc {
+    margin: 0 0 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+  }
+  .toc > summary {
+    padding: .9rem 1.2rem;
+    font-family: "Barlow Condensed", "Public Sans", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none;
+  }
+  .toc > summary::-webkit-details-marker { display: none; }
+  .toc > summary::before {
+    content: "\25B8";
+    display: inline-block;
+    width: 1.1em;
+    transition: transform .15s ease;
+  }
+  .toc[open] > summary::before { transform: rotate(90deg); }
+  .toc ol {
+    margin: 0;
+    padding: 0 1.2rem 1rem 2.3rem;
+  }
+  .toc li { margin: .25rem 0; }
+  .toc a { color: var(--navy); text-underline-offset: 3px; }
+
+  /* ---------- filter ---------- */
+
+  .filter { margin: 0 0 2rem; }
+  .filter h2 {
+    margin: 0 0 .6rem;
+    font-family: "Barlow Condensed", "Public Sans", sans-serif;
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .45rem;
+    padding: .4rem .85rem .45rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+  }
+  .chip:hover { border-color: var(--navy); background: var(--card-hi); }
+  .chip .n { font-size: .72rem; font-weight: 700; opacity: .6; }
+  .chip[aria-pressed="true"] {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--gold);
+  }
+  .chip[aria-pressed="true"] .n { opacity: .75; }
+  .chip[disabled] { opacity: .38; cursor: not-allowed; }
+  .chip[disabled]:hover { border-color: var(--line); background: var(--card); }
+
+  .filter-clear {
+    margin: .8rem 0 0;
+    font-size: .85rem;
+    color: var(--muted);
+  }
+  .filter-clear button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--navy);
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  /* ---------- &ouml;vningskort ---------- */
+
+  .exercise {
+    padding: 1.5rem 1.7rem 1.7rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    scroll-margin-top: 1rem;
+  }
+  .exercise > h2 {
+    margin: 0 0 1rem;
+    font-family: "Barlow Condensed", "Public Sans", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .exercise img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  .exercise .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .exercise .tags li {
+    padding: .2em .65em .26em;
+    border-radius: 999px;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+  .steps {
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .steps li {
+    padding: .3rem 0 .3rem .95rem;
+    border-left: 2px solid var(--line);
+    color: var(--muted);
+    font-size: .95rem;
+  }
+
+  .no-hits { display: none; }
+  .no-hits.show { display: block; }
+
+  @media (max-width: 480px) {
+    .exercise { padding: 1.2rem 1.25rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <a class="back" href="index.html">&larr; Tr&auml;ning</a>
+    <h1>&Ouml;vningar</h1>
+    <p class="lead">&Ouml;vningsbank med schema, kategorier och genomf&ouml;rande.</p>
+  </header>
+
+  <details class="toc">
+    <summary>Alla &ouml;vningar</summary>
+    <ol>
+<!-- BEGIN:toc -->
+      <li data-toc="2m1_utveckling"><a href="#2m1_utveckling">2 mot 1 &ndash; fr&aring;n h&ouml;rn</a></li>
+      <li data-toc="horn_5_pass"><a href="#horn_5_pass">H&ouml;rn &ndash; 5 passningar</a></li>
+      <li data-toc="spanjorerna"><a href="#spanjorerna">Spanjorerna</a></li>
+<!-- END:toc -->
+    </ol>
+  </details>
+
+  <section class="filter">
+    <h2>Kategorier</h2>
+    <div class="chips">
+<!-- BEGIN:chips -->
+      <button type="button" class="chip" data-flag="passning" aria-pressed="false">passning <span class="n"></span></button>
+      <button type="button" class="chip" data-flag="skott" aria-pressed="false">skott <span class="n"></span></button>
+      <button type="button" class="chip" data-flag="jag-o-boll" aria-pressed="false">jag o boll <span class="n"></span></button>
+      <button type="button" class="chip" data-flag="spelforstaelse" aria-pressed="false">spelf&ouml;rst&aring;else <span class="n"></span></button>
+      <button type="button" class="chip" data-flag="instruerad" aria-pressed="false">instruerad <span class="n"></span></button>
+      <button type="button" class="chip" data-flag="baga" aria-pressed="false">b&aring;ga <span class="n"></span></button>
+      <button type="button" class="chip" data-flag="2m1" aria-pressed="false">2m1 <span class="n"></span></button>
+      <button type="button" class="chip" data-flag="3m2" aria-pressed="false">3m2 <span class="n"></span></button>
+<!-- END:chips -->
+    </div>
+    <p class="filter-clear" hidden>Visar &ouml;vningar med <strong>alla</strong> valda kategorier. <button type="button" id="clear">Rensa filter</button></p>
+  </section>
+
+  <!-- &Ouml;vningarna nedan genereras av tools/build_ovningar.py fr&aring;n
+       .trainingFiles/. Redigera inte mellan mark&ouml;rerna f&ouml;r hand &mdash; &auml;ndra
+       description.md och k&ouml;r skriptet igen. CSS, JS och &ouml;vrig text i den h&auml;r
+       filen redigeras d&auml;remot som vanligt. -->
+<!-- BEGIN:cards -->
+  <article class="exercise" id="2m1_utveckling" data-flags="spelforstaelse 2m1">
+    <h2>2 mot 1 &ndash; fr&aring;n h&ouml;rn</h2>
+    <img src="../assets/ovningar/2m1_utveckling.png" alt="&Ouml;vningsschema: 2 mot 1 &ndash; fr&aring;n h&ouml;rn" width="2047" height="1425" loading="lazy">
+    <ul class="tags">
+      <li>spelf&ouml;rst&aring;else</li>
+      <li>2m1</li>
+    </ul>
+    <ol class="steps">
+      <li>"1" passar till back, "r&ouml;tt 1"</li>
+      <li>Back skjuter</li>
+      <li>"1" driver in med ny boll</li>
+      <li>"2" hj&auml;lper till i anfallet, kan spela &ouml;verl&auml;mning, eller s&aring; forts&auml;tter "1" sj&auml;lv, eller s&aring; g&aring;r "2" direkt framf&ouml;r m&aring;l</li>
+    </ol>
+  </article>
+
+  <article class="exercise" id="horn_5_pass" data-flags="passning instruerad">
+    <h2>H&ouml;rn &ndash; 5 passningar</h2>
+    <img src="../assets/ovningar/horn_5_pass.png" alt="&Ouml;vningsschema: H&ouml;rn &ndash; 5 passningar" width="2047" height="1425" loading="lazy">
+    <ul class="tags">
+      <li>passning</li>
+      <li>instruerad</li>
+    </ul>
+    <ol class="steps">
+      <li>"1" b&ouml;rjar med bollen i h&ouml;rnet, passar upp, f&aring;r bollen tillbaka - m&ouml;t</li>
+      <li>"2" efter pass g&aring; mot mitten (inte fram), f&aring; bollen igen</li>
+      <li>"2" pass till andra h&ouml;rnet och l&ouml;pning framf&ouml;r m&aring;l, pass tillbaka och direktskott</li>
+      <li>"3" efter pass framf&ouml;r m&aring;l, b&ouml;rja &ouml;vningen med ny boll fr&aring;n andra sidan</li>
+    </ol>
+  </article>
+
+  <article class="exercise" id="spanjorerna" data-flags="spelforstaelse">
+    <h2>Spanjorerna</h2>
+    <img src="../assets/ovningar/spanjorerna.png" alt="&Ouml;vningsschema: Spanjorerna" width="2047" height="1109" loading="lazy">
+    <ul class="tags">
+      <li>spelf&ouml;rst&aring;else</li>
+    </ul>
+    <ol class="steps">
+      <li>Flytta fram m&aring;len</li>
+      <li>3 mot 3 i mitten (man-man-f&ouml;rsvar)</li>
+      <li>4 jokrar i varje lag</li>
+      <li>Det g&aring;r inte att markera jokrarna</li>
+      <li>Variation: m&aring;ste passa till en joker, tv&aring; jokrar, alla jokrar</li>
+      <li>Byte: flytande med jokrar, alternativt snabba byten var 30:e sekund</li>
+    </ol>
+  </article>
+<!-- END:cards -->
+
+  <p class="empty no-hits">Ingen &ouml;vning har alla valda kategorier.</p>
+
+  <footer>Publicerad med GitHub Pages.</footer>
+</main>
+
+<script>
+(function () {
+  var cards   = Array.prototype.slice.call(document.querySelectorAll(".exercise"));
+  var chips   = Array.prototype.slice.call(document.querySelectorAll(".chip"));
+  var toc     = document.querySelector(".toc");
+  var tocRows = Array.prototype.slice.call(document.querySelectorAll("[data-toc]"));
+  var noHits  = document.querySelector(".no-hits");
+  var hint    = document.querySelector(".filter-clear");
+  var selected = [];
+
+  function flagsOf(card) { return (card.dataset.flags || "").split(/\s+/); }
+
+  // R&auml;kna kategorierna fr&aring;n korten, s&aring; att en ny &ouml;vning r&auml;cker &mdash; ingen siffra att uppdatera.
+  chips.forEach(function (chip) {
+    var n = cards.filter(function (c) { return flagsOf(c).indexOf(chip.dataset.flag) > -1; }).length;
+    chip.querySelector(".n").textContent = n;
+    if (n === 0) chip.disabled = true;
+  });
+
+  function apply() {
+    var hits = 0;
+    cards.forEach(function (card) {
+      var flags = flagsOf(card);
+      var show = selected.every(function (f) { return flags.indexOf(f) > -1; });
+      card.hidden = !show;
+      if (show) hits++;
+      tocRows.forEach(function (row) {
+        if (row.dataset.toc === card.id) row.hidden = !show;
+      });
+    });
+    noHits.classList.toggle("show", hits === 0);
+    hint.hidden = selected.length === 0;
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      var f = chip.dataset.flag;
+      var i = selected.indexOf(f);
+      if (i > -1) selected.splice(i, 1); else selected.push(f);
+      chip.setAttribute("aria-pressed", i > -1 ? "false" : "true");
+      apply();
+    });
+  });
+
+  document.getElementById("clear").addEventListener("click", function () {
+    selected = [];
+    chips.forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+    apply();
+  });
+
+  // St&auml;ng listan efter ett val &mdash; annars skymmer den kortet man hoppade till.
+  tocRows.forEach(function (row) {
+    row.querySelector("a").addEventListener("click", function () { toc.open = false; });
+  });
+
+  apply();
+})();
+</script>
+</body>
+</html>

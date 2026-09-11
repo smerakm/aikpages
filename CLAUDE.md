@@ -11,7 +11,32 @@ assets/site.css         shared shell for every nav page
 assets/aik-logo.png     club crest, vendored (do not hotlink the CDN)
 taktik/  training/  itelligence/    section pages, each an index.html
 itelligence/pojkar-20{12,13}-*.html  pre-existing data tables — own theme, leave alone
+training/ovningar.html  övningsbank — partly generated, see below
+assets/ovningar/        exercise schemas, copied out of .trainingFiles by the generator
+tools/build_ovningar.py generator for training/ovningar.html
+.trainingFiles/         source of truth for the exercises — gitignored, never published
 ```
+
+## Övningar
+
+`training/ovningar.html` is generated from `.trainingFiles/`, one subfolder per exercise
+holding a `description.md` (H1 name, image link, `## Flags ##`, `## Description ##`) and
+its schema image. `.trainingFiles/config.md` lists the valid categories.
+
+```
+python3 tools/build_ovningar.py           # rewrite the page, sync assets/ovningar/
+python3 tools/build_ovningar.py --check    # exit 1 if the page is out of date
+```
+
+The script rewrites only the regions between `<!-- BEGIN:toc -->`, `<!-- BEGIN:chips -->`
+and `<!-- BEGIN:cards -->` markers — the CSS, the filter JS and the prose around them are
+hand-edited in that file as usual. It refuses to write if an exercise names a category
+missing from `config.md` or points at a missing image.
+
+Because `.trainingFiles/` is gitignored, the images it copies into `assets/ovningar/` are
+the only ones Pages ever sees; the script also deletes assets whose exercise is gone.
+It applies two display-only transforms: a capital first letter and an en dash in the
+heading. Everything else is verbatim, so fix the Swedish in `description.md`, not in HTML.
 
 ## Conventions
 
