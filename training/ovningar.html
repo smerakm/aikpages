@@ -154,6 +154,21 @@
     font-size: .95rem;
   }
 
+  /* L&auml;nk till &ouml;vningen i det externa system den kommer fr&aring;n. */
+  .source {
+    margin: 1.1rem 0 0;
+    font-size: .9rem;
+  }
+  .source a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .4rem;
+    color: var(--navy);
+    text-underline-offset: 3px;
+  }
+  .source .arrow { transition: transform .15s ease; }
+  .source a:hover .arrow { transform: translateX(4px); }
+
   .no-hits { display: none; }
   .no-hits.show { display: block; }
 
@@ -177,6 +192,7 @@
       <li data-toc="2m1_utveckling"><a href="#2m1_utveckling">2 mot 1 &ndash; fr&aring;n h&ouml;rn</a></li>
       <li data-toc="horn_5_pass"><a href="#horn_5_pass">H&ouml;rn &ndash; 5 passningar</a></li>
       <li data-toc="spanjorerna"><a href="#spanjorerna">Spanjorerna</a></li>
+      <li data-toc="spelavstand_3v2"><a href="#spelavstand_3v2">Spelavst&aring;nd 3 v 2</a></li>
 <!-- END:toc -->
     </ol>
   </details>
@@ -247,6 +263,21 @@
       <li>Variation: m&aring;ste passa till en joker, tv&aring; jokrar, alla jokrar</li>
       <li>Byte: flytande med jokrar, alternativt snabba byten var 30:e sekund</li>
     </ol>
+  </article>
+
+  <article class="exercise" id="spelavstand_3v2" data-flags="spelforstaelse 3m2">
+    <h2>Spelavst&aring;nd 3 v 2</h2>
+    <img src="../assets/ovningar/spelavstand_3v2.png" alt="&Ouml;vningsschema: Spelavst&aring;nd 3 v 2" width="2047" height="1425" loading="lazy">
+    <ul class="tags">
+      <li>spelf&ouml;rst&aring;else</li>
+      <li>3m2</li>
+    </ul>
+    <ol class="steps">
+      <li>Anfallande lag (svarta spelare) spelar 3-2. D&auml;r de ska f&ouml;rs&ouml;ka hitta ytor att kunna f&aring; en passning fr&aring;n bollf&ouml;rare.</li>
+      <li>&Ouml;vningen startar med att ledare kastar bollen till n&aring;got av de anfallande leden. R&ouml;da leden b&ouml;rjar f&ouml;rsvara direkt n&auml;r ledare kastar in bollen.</li>
+      <li>Ha alltid tv&aring; m&aring;l och l&aring;t 2:an f&aring; anfalla tillbaka om de lyckas er&ouml;vra bollen. &Ouml;vningen &auml;r slut n&auml;r 3:an gjort m&aring;l eller bollen &auml;r d&ouml;d (&ouml;ver sargen).</li>
+    </ol>
+    <p class="source"><a href="https://www.innebandy.se/ovningsbanken/spelavstand-3-v-2" target="_blank" rel="noopener">&Ouml;ppna &ouml;vningen hos innebandy.se <span class="arrow">&rarr;</span></a></p>
   </article>
 <!-- END:cards -->
 

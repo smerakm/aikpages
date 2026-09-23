@@ -20,8 +20,11 @@ tools/build_ovningar.py generator for training/ovningar.html
 ## Övningar
 
 `training/ovningar.html` is generated from `.trainingFiles/`, one subfolder per exercise
-holding a `description.md` (H1 name, image link, `## Flags ##`, `## Description ##`) and
-its schema image. `.trainingFiles/config.md` lists the valid categories.
+holding a `description.md` (H1 name, image link, `## Flags ##`, `## Description ##`, and
+an optional `## Länken ##`) and its schema image. `.trainingFiles/config.md` lists the
+valid categories. `## Länken ##` holds a bare http(s) URL or a `[text](url)` markdown link
+to the exercise in the system it came from; the card then gets a `.source` link that opens
+in a new tab, labelled with the host unless the markdown link names its own text.
 
 ```
 python3 tools/build_ovningar.py           # rewrite the page, sync assets/ovningar/
