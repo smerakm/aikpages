@@ -191,6 +191,43 @@
     font-size: .95rem;
   }
 
+  /* Strukturerad beskrivning: ingress, avsnitt (h3), mellanrubriker (h4), listor. */
+  .desc { margin: 1.1rem 0 0; }
+  .desc > p:first-child {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .desc section {
+    margin: 1.5rem 0 0;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--line);
+  }
+  .desc h3 {
+    margin: 0;
+    font-family: "Barlow Condensed", "Public Sans", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .desc h4 {
+    margin: 1.1rem 0 0;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .desc section p {
+    margin: .7rem 0 0;
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+  .desc .steps { margin-top: .6rem; }
+
   /* L&auml;nk till &ouml;vningen i det externa system den kommer fr&aring;n. */
   .source {
     margin: 1.1rem 0 0;
@@ -280,17 +317,59 @@
       <li>spelf&ouml;rst&aring;else</li>
       <li>3m2</li>
     </ul>
-    <ol class="steps">
-      <li>Syfte: r&ouml;ra sig till fria ytor, hitta den fria spelaren, timing mellan bollh&aring;llare och anfallare samt uppspelspassning &ouml;ver mittlinjen.</li>
-      <li>Spel 5 mot 4 &ouml;ver hela planen. I bilden &auml;r det r&ouml;da laget anfallande (5 spelare) och det svarta laget f&ouml;rsvarande (4 spelare).</li>
-      <li>Det anfallande laget startar med bollen i sin f&ouml;rsvarszon med tv&aring; backar och en center. D&auml;r pressar tv&aring; forwards fr&aring;n det f&ouml;rsvarande laget. I anfallszonen st&aring;r tv&aring; forwards fr&aring;n det anfallande laget och tv&aring; backar fr&aring;n det f&ouml;rsvarande laget redo.</li>
-      <li>M&aring;let &auml;r att hitta en passning fr&aring;n den egna f&ouml;rsvarszonen till anfallszonen. Bollen m&aring;ste passas &ouml;ver mittlinjen &ndash; det &auml;r inte till&aring;tet att driva bollen &ouml;ver.</li>
-      <li>Efter passningen f&ouml;ljer en spelare (centern eller den som passade) med upp i anfallszonen, och laget spelar 3 mot 2 d&auml;r. Samtidigt byts de tv&aring; backarna som inte f&ouml;ljer med i anfallet ut, liksom de tv&aring; spelarna som pressade.</li>
-      <li>Om de tv&aring; pressande spelarna vinner bollen ska de f&ouml;rs&ouml;ka beh&aring;lla den eller g&ouml;ra m&aring;l. De tre spelarna i det anfallande laget ska d&aring; vinna tillbaka bollen.</li>
-      <li>N&auml;r det anfallande laget tappar bollen i anfallszonen byter lagen roller. Centern (eller den som f&ouml;ljde med i anfallet) g&aring;r av och en ny center kommer in. Det tidigare anfallande lagets tv&aring; forwards pressar nu, medan de tv&aring; backarna med bollen h&aring;ller den och v&auml;ntar p&aring; hj&auml;lp fr&aring;n sin nya center. Spelet forts&auml;tter direkt med samma boll mot andra h&aring;llet.</li>
-      <li>Vid m&aring;l kan tr&auml;narna v&auml;lja att antingen g&ouml;ra byte (som vid bolltapp) eller forts&auml;tta spela 3 mot 2 i anfallszonen med ett frislag fr&aring;n h&ouml;rnet. Best&auml;m i f&ouml;rv&auml;g vad som g&auml;ller, till exempel frislag efter f&ouml;rsta m&aring;let och byte efter andra.</li>
-      <li>K&ouml;r &ouml;vningen f&ouml;re (eller som en del av) spel 5 mot 5 med lagen indelade som i 5 mot 5-spelet, i ungef&auml;r 10 minuter, och g&aring; sedan direkt &ouml;ver till 5 mot 5. Fungerar bra med 20 utespelare men g&aring;r &auml;ven med f&auml;rre, till exempel tre backar och tre forwards i varje lag.</li>
-    </ol>
+    <div class="desc">
+      <p>Spel&ouml;vning d&auml;r laget tr&auml;nar p&aring; att spela sig ur press och hitta en passning &ouml;ver mittlinjen till de egna anfallarna.</p>
+      <section>
+        <h3>Syfte</h3>
+        <ul class="steps">
+          <li>R&ouml;ra sig till fria ytor.</li>
+          <li>Hitta och passa den spelare som &auml;r fri.</li>
+          <li>Tr&auml;na timingen mellan bollh&aring;llaren och anfallarna.</li>
+          <li>&Ouml;va uppspelspassningen &ouml;ver mittlinjen.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Genomf&ouml;rande</h3>
+        <p>Spel 5 mot 4 &ouml;ver hela planen. Laget med bollen (anfallande lag) har fem spelare och det f&ouml;rsvarande laget har fyra. I bilden &auml;r det r&ouml;da laget anfallande och det svarta laget f&ouml;rsvarande.</p>
+        <h4>Regler</h4>
+        <ul class="steps">
+          <li>Det anfallande laget startar med bollen i sin f&ouml;rsvarszon med tv&aring; backar och en center. D&auml;r pressar tv&aring; forwards fr&aring;n det f&ouml;rsvarande laget.</li>
+          <li>I anfallszonen st&aring;r samtidigt tv&aring; forwards fr&aring;n det anfallande laget och tv&aring; backar fr&aring;n det f&ouml;rsvarande laget redo.</li>
+          <li>M&aring;let &auml;r att hitta en passning fr&aring;n den egna f&ouml;rsvarszonen till anfallszonen.</li>
+          <li>Bollen m&aring;ste passas &ouml;ver mittlinjen. Det &auml;r inte till&aring;tet att driva bollen &ouml;ver.</li>
+          <li>Efter passningen &ouml;ver mittlinjen f&ouml;ljer en spelare (centern eller den som passade) med upp i anfallszonen, och laget spelar 3 mot 2 d&auml;r.</li>
+          <li>Om de tv&aring; pressande spelarna vinner bollen ska de f&ouml;rs&ouml;ka beh&aring;lla den eller g&ouml;ra m&aring;l. De tre spelarna i det anfallande laget ska d&aring; vinna tillbaka bollen.</li>
+          <li>N&auml;r det anfallande laget tappar bollen i anfallszonen byter lagen roller. En ny center hoppar in och spelet forts&auml;tter direkt med samma boll mot andra h&aring;llet.</li>
+        </ul>
+        <h4>Byten</h4>
+        <ul class="steps">
+          <li>N&auml;r det anfallande laget passar till anfallszonen byts de tv&aring; backarna som inte f&ouml;ljer med i anfallet ut, liksom de tv&aring; spelarna som pressade.</li>
+          <li>N&auml;r det anfallande laget tappar bollen i anfallszonen g&aring;r centern (eller den spelare som f&ouml;ljde med i anfallet) av planen och en ny center kommer in. Det tidigare anfallande lagets tv&aring; forwards pressar nu, medan de tv&aring; backarna med bollen h&aring;ller den och v&auml;ntar p&aring; hj&auml;lp fr&aring;n sin nya center.</li>
+          <li>Vid m&aring;l kan tr&auml;narna v&auml;lja att antingen g&ouml;ra byte (som vid bolltapp) eller forts&auml;tta spela 3 mot 2 i anfallszonen med ett frislag fr&aring;n h&ouml;rnet. Best&auml;m i f&ouml;rv&auml;g vad som g&auml;ller, till exempel frislag efter f&ouml;rsta m&aring;let och byte efter andra.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Tips f&ouml;r tr&auml;ningspasset</h3>
+        <ul class="steps">
+          <li>K&ouml;r &ouml;vningen f&ouml;re (eller som en del av) spel 5 mot 5.</li>
+          <li>Dela in lagen som de ska spela 5 mot 5, s&aring; att femmorna f&aring;r spela ihop redan i den h&auml;r &ouml;vningen.</li>
+          <li>K&ouml;r i ungef&auml;r 10 minuter och g&aring; sedan direkt &ouml;ver till spel 5 mot 5.</li>
+          <li>&Ouml;vningen fungerar bra med 20 utespelare, men g&aring;r &auml;ven att k&ouml;ra med f&auml;rre, till exempel tre backar och tre forwards i varje lag.</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Fr&aring;gor att st&auml;lla till spelarna</h3>
+        <ul class="steps">
+          <li>Hur g&ouml;r du dig spelbar f&ouml;r bollh&aring;llaren n&auml;r du &auml;r pressad?</li>
+          <li>N&auml;r ska du starta din l&ouml;pning f&ouml;r att f&aring; passningen &ouml;ver mittlinjen?</li>
+          <li>Vem f&ouml;ljer med upp i anfallszonen, och hur skapar ni 3 mot 2 d&auml;r?</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Material</h3>
+        <p>Bollar, v&auml;star, tv&aring; m&aring;l och tv&aring; m&aring;lvakter.</p>
+      </section>
+    </div>
   </article>
 
   <article class="exercise" id="gatillsida_direkt_skott" data-flags="skott">
