@@ -117,6 +117,43 @@
     font-weight: 600;
     line-height: 1.1;
   }
+  /* Kortet man kom till via en delad l&auml;nk (ovningar.html#mappnamn). */
+  .exercise:target {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 2px var(--navy);
+  }
+
+  /* Egen adress per &ouml;vning: klick kopierar hela l&auml;nken. */
+  .permalink {
+    margin-left: .3rem;
+    padding: 0 .25rem;
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 1.1rem;
+    text-decoration: none;
+    opacity: .55;
+    transition: opacity .15s ease, color .15s ease;
+  }
+  .exercise:hover .permalink,
+  .permalink:focus-visible { opacity: 1; }
+  .permalink:hover { color: var(--navy); }
+  .permalink.copied::after {
+    content: "L\00E4nk kopierad";
+    margin-left: .45rem;
+    font-family: "Public Sans", sans-serif;
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
   .exercise img {
     display: block;
     width: 100%;
@@ -222,7 +259,7 @@
        filen redigeras d&auml;remot som vanligt. -->
 <!-- BEGIN:cards -->
   <article class="exercise" id="2m1_utveckling" data-flags="spelforstaelse 2m1">
-    <h2>2 mot 1 &ndash; fr&aring;n h&ouml;rn</h2>
+    <h2>2 mot 1 &ndash; fr&aring;n h&ouml;rn <a class="permalink" href="#2m1_utveckling" title="Kopiera l&auml;nk till &ouml;vningen"><span aria-hidden="true">#</span><span class="sr">L&auml;nk till &ouml;vningen</span></a></h2>
     <img src="../assets/ovningar/2m1_utveckling.png" alt="&Ouml;vningsschema: 2 mot 1 &ndash; fr&aring;n h&ouml;rn" width="2047" height="1425" loading="lazy">
     <ul class="tags">
       <li>spelf&ouml;rst&aring;else</li>
@@ -237,7 +274,7 @@
   </article>
 
   <article class="exercise" id="5v4_over_mittlinjen" data-flags="spelforstaelse 3m2">
-    <h2>5 mot 4 &ndash; passning &ouml;ver mittlinjen</h2>
+    <h2>5 mot 4 &ndash; passning &ouml;ver mittlinjen <a class="permalink" href="#5v4_over_mittlinjen" title="Kopiera l&auml;nk till &ouml;vningen"><span aria-hidden="true">#</span><span class="sr">L&auml;nk till &ouml;vningen</span></a></h2>
     <img src="../assets/ovningar/5v4_over_mittlinjen.png" alt="&Ouml;vningsschema: 5 mot 4 &ndash; passning &ouml;ver mittlinjen" width="2047" height="1109" loading="lazy">
     <ul class="tags">
       <li>spelf&ouml;rst&aring;else</li>
@@ -257,7 +294,7 @@
   </article>
 
   <article class="exercise" id="gatillsida_direkt_skott" data-flags="skott">
-    <h2>G&aring; till sida &ndash; direkt skott</h2>
+    <h2>G&aring; till sida &ndash; direkt skott <a class="permalink" href="#gatillsida_direkt_skott" title="Kopiera l&auml;nk till &ouml;vningen"><span aria-hidden="true">#</span><span class="sr">L&auml;nk till &ouml;vningen</span></a></h2>
     <img src="../assets/ovningar/gatillsida_direkt_skott.png" alt="&Ouml;vningsschema: G&aring; till sida &ndash; direkt skott" width="2047" height="1425" loading="lazy">
     <ul class="tags">
       <li>skott</li>
@@ -270,7 +307,7 @@
   </article>
 
   <article class="exercise" id="horn_5_pass" data-flags="passning instruerad">
-    <h2>H&ouml;rn &ndash; 5 passningar</h2>
+    <h2>H&ouml;rn &ndash; 5 passningar <a class="permalink" href="#horn_5_pass" title="Kopiera l&auml;nk till &ouml;vningen"><span aria-hidden="true">#</span><span class="sr">L&auml;nk till &ouml;vningen</span></a></h2>
     <img src="../assets/ovningar/horn_5_pass.png" alt="&Ouml;vningsschema: H&ouml;rn &ndash; 5 passningar" width="2047" height="1425" loading="lazy">
     <ul class="tags">
       <li>passning</li>
@@ -285,7 +322,7 @@
   </article>
 
   <article class="exercise" id="spanjorerna" data-flags="spelforstaelse">
-    <h2>Spanjorerna</h2>
+    <h2>Spanjorerna <a class="permalink" href="#spanjorerna" title="Kopiera l&auml;nk till &ouml;vningen"><span aria-hidden="true">#</span><span class="sr">L&auml;nk till &ouml;vningen</span></a></h2>
     <img src="../assets/ovningar/spanjorerna.png" alt="&Ouml;vningsschema: Spanjorerna" width="2047" height="1109" loading="lazy">
     <ul class="tags">
       <li>spelf&ouml;rst&aring;else</li>
@@ -301,7 +338,7 @@
   </article>
 
   <article class="exercise" id="spelavstand_3v2" data-flags="spelforstaelse 3m2">
-    <h2>Spelavst&aring;nd 3 v 2</h2>
+    <h2>Spelavst&aring;nd 3 v 2 <a class="permalink" href="#spelavstand_3v2" title="Kopiera l&auml;nk till &ouml;vningen"><span aria-hidden="true">#</span><span class="sr">L&auml;nk till &ouml;vningen</span></a></h2>
     <img src="../assets/ovningar/spelavstand_3v2.png" alt="&Ouml;vningsschema: Spelavst&aring;nd 3 v 2" width="2047" height="1425" loading="lazy">
     <ul class="tags">
       <li>spelf&ouml;rst&aring;else</li>
@@ -374,6 +411,34 @@
   // St&auml;ng listan efter ett val &mdash; annars skymmer den kortet man hoppade till.
   tocRows.forEach(function (row) {
     row.querySelector("a").addEventListener("click", function () { toc.open = false; });
+  });
+
+  // En delad l&auml;nk ska alltid visa sin &ouml;vning &mdash; sl&auml;pp filtret om det d&ouml;ljer den.
+  function reveal() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var card = id && document.getElementById(id);
+    if (!card || !card.classList.contains("exercise") || !card.hidden) return;
+    selected = [];
+    chips.forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+    apply();
+    card.scrollIntoView();
+  }
+  window.addEventListener("hashchange", reveal);
+
+  // #-l&auml;nken p&aring; kortet: s&auml;tt adressen och kopiera den, redo att klistra in i chatten.
+  document.querySelectorAll(".permalink").forEach(function (link) {
+    link.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      var url = location.href.split("#")[0] + link.getAttribute("href");
+      location.replace(link.getAttribute("href"));  // uppdaterar :target utan ny historikpost
+      function done() {
+        link.classList.add("copied");
+        setTimeout(function () { link.classList.remove("copied"); }, 1800);
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(done, function () {});
+      }
+    });
   });
 
   apply();

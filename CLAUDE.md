@@ -38,6 +38,10 @@ missing from `config.md` or points at a missing image.
 
 Because `.trainingFiles/` is gitignored, the images it copies into `assets/ovningar/` are
 the only ones Pages ever sees; the script also deletes assets whose exercise is gone.
+Each exercise's folder name is its card `id`, which makes it the drill's permanent address
+(`training/ovningar.html#<folder>`). The `#` permalink on the card copies that URL, and
+links like it get shared with players, so don't rename folders casually.
+
 It applies two display-only transforms: a capital first letter and an en dash in the
 heading. Everything else is verbatim, so fix the Swedish in `description.md`, not in HTML.
 
